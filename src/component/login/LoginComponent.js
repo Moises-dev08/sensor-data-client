@@ -11,6 +11,7 @@ import {
   USER_MIN_LENGHT,
 } from "../../const/const";
 import { loginUserService } from "../../services/querys/loginService";
+import { signUpUserService } from "../../services/querys/signUpService";
 
 const LoginComponent = () => {
   let history = useHistory();
@@ -50,8 +51,28 @@ const LoginComponent = () => {
     loginUserService(data)
       .then((user) => {
         if (user.auth) {
+          localStorage.setItem("user", user.token);
           history.push("/home");
-          console.log("token", user.token);
+        } else {
+          alert(LOGIN_ERROR);
+        }
+      })
+      .catch((err) => alert(err));
+  };
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+
+    let data = {
+      email: formik.values.usuario,
+      password: formik.values.contraseña,
+    };
+
+    signUpUserService(data)
+      .then((user) => {
+        if (user.auth) {
+          localStorage.setItem("user", user.token);
+          history.push("/home");
         } else {
           alert(LOGIN_ERROR);
         }
@@ -92,6 +113,10 @@ const LoginComponent = () => {
 
         <button type="submit" className="login__button" onClick={handleLogin}>
           Acceder al sistema
+        </button>
+
+        <button type="submit" className="login__button" onClick={handleSignUp}>
+          Crear cuenta
         </button>
       </form>
     </div>

@@ -13,3 +13,6 @@ export const MAIN_SERVER_URL = "http://localhost:3001";
 // Login Authentication:
 export const LOGIN_SERVER_URL = "/login";
 export const LOGIN_ERROR = "Usuario o contraseña es incorrecto.";
+
+// SignUp Authentication:
+export const SIGNUP_SERVER_URL = "/signUp";
