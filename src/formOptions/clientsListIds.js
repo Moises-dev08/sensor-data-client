@@ -6,6 +6,6 @@ module.exports = [
     value: "",
   },
   {
-    value: `${id} - ${razon_social}`,
+    value: `${id}  - ${razon_social}`,
   },
 ];
