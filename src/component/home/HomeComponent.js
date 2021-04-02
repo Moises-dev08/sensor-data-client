@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../../style/home.css";
 
 const HomeComponent = () => {
   let [user, setUser] = useState("");

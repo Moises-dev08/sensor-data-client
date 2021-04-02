@@ -17,7 +17,7 @@ const ClientsListComponent = () => {
       Email: "social.sa@gmail.com",
       Web: "www.social.sa.com",
       Seguro: "Uruguay Tansito",
-      Activo: "true",
+      Activo: "si",
     },
   ];
 

@@ -70,13 +70,13 @@ const FormikContainerComponent = () => {
           <FormikControlComponent
             control="input"
             type="text"
-            label="Direccion"
+            label="Dirección"
             name="direccion"
           />
           <FormikControlComponent
             control="select"
             type="text"
-            label="Pais"
+            label="País"
             name="selectCountryOption"
             options={countriesDropdownOptions}
           />
@@ -89,7 +89,7 @@ const FormikContainerComponent = () => {
           <FormikControlComponent
             control="input"
             type="text"
-            label="Codigo Postal"
+            label="Código Postal"
             name="codigoPostal"
           />
           <FormikControlComponent
