@@ -10,3 +10,7 @@
   font-size: 17px;
   cursor: pointer;
 }
+
+.form__wraper {
+  width: 100%;
+}

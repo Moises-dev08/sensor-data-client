@@ -56,7 +56,7 @@ const FormikContainerComponent = () => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}>
         {(formik) => (
-          <Form>
+          <Form className="form__wraper">
             <FormikControlComponent
               control="input"
               type="text"
