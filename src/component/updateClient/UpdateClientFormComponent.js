@@ -139,7 +139,10 @@ const UpdateClientFormComponent = ({ values }) => {
               label="Activo"
               name="activo"
             />
-            <button type="submit"> Modificar cliente</button>
+            <button className="update__button" type="submit">
+              {" "}
+              Modificar cliente
+            </button>
           </Form>
         )}
       </Formik>

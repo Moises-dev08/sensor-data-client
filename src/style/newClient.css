@@ -1,0 +1,12 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newClient__button {
+  background-color: #b6c2c9;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}

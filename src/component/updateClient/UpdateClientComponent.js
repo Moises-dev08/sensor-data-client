@@ -5,6 +5,7 @@ import FormikControlComponent from "../formik/FormikControlComponent";
 import { FORM_FIELDS_ERROR } from "../../const/const";
 import clientsListIds from "../../formOptions/clientsListIds";
 import UpdateClientFormComponent from "./UpdateClientFormComponent";
+import "../../style/updateClient.css";
 
 const UpdateClientComponent = () => {
   const [valuesForm, setFormValues] = useState();
@@ -40,7 +41,10 @@ const UpdateClientComponent = () => {
                 options={clientsIds}
               />
 
-              <button type="submit"> Seleccionar</button>
+              <button className="update__button" type="submit">
+                {" "}
+                Seleccionar
+              </button>
             </Form>
           )}
         </Formik>

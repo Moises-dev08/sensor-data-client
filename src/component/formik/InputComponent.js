@@ -1,13 +1,24 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 import TextError from "./TextErrorComponent";
+import "../../style/inputComponent.css";
 
 const InputComponent = ({ label, name, ...rest }) => {
   return (
     <div className="form__control">
-      <label htmlFor={name}>{label}</label>
-      <Field id={name} name={name} {...rest} />
-      <ErrorMessage name={name} component={TextError} />
+      <div className="form__controlLeft">
+        <label htmlFor={name} className="form__controlLabel">
+          {label}
+        </label>
+      </div>
+      <div className="form__controlLeft">
+        <Field id={name} name={name} {...rest} />
+        <ErrorMessage
+          name={name}
+          component={TextError}
+          className="form__controlError"
+        />
+      </div>
     </div>
   );
 };

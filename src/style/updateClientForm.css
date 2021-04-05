@@ -1,7 +1,7 @@
-.delete__button {
+.update__button {
   background-color: #b6c2c9;
   color: white;
   font-size: 17px;
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: 10px;
 }

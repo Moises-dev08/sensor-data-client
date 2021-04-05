@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import FormikControlComponent from "../formik/FormikControlComponent";
 import { FORM_FIELDS_ERROR } from "../../const/const";
 import clientsListIds from "../../formOptions/clientsListIds";
+import "../../style/deleteClient.css";
 
 const DeleteClientComponent = () => {
   const clientsIds = clientsListIds;
@@ -35,7 +36,10 @@ const DeleteClientComponent = () => {
             options={clientsIds}
           />
 
-          <button type="submit"> Eliminar cliente</button>
+          <button className="delete__button" type="submit">
+            {" "}
+            Eliminar cliente
+          </button>
         </Form>
       )}
     </Formik>

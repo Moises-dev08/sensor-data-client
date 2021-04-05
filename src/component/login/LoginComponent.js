@@ -12,6 +12,7 @@ import {
 } from "../../const/const";
 import { loginUserService } from "../../services/querys/loginService";
 import { signUpUserService } from "../../services/querys/signUpService";
+import "../../style/login.css";
 
 const LoginComponent = () => {
   let history = useHistory();
