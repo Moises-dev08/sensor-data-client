@@ -133,14 +133,12 @@ const UpdateClientFormComponent = ({ values }) => {
             />
             <FormikControlComponent
               control="checkbox"
-              label="Seguro"
-              name="selectAssuranceOption"
+              name="selectAssuranceOption1"
               options={assuranceOptions1}
             />
             <FormikControlComponent
               control="checkbox"
-              label="Seguro"
-              name="selectAssuranceOption"
+              name="selectAssuranceOption2"
               options={assuranceOptions2}
             />
             <FormikControlComponent
