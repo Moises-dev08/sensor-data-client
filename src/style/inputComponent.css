@@ -6,6 +6,10 @@
   justify-content: space-between;
 }
 
+.form__field {
+  height: 20px;
+}
+
 .form__controlLeft {
   display: flex;
   margin-left: 15px;

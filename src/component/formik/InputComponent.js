@@ -12,7 +12,7 @@ const InputComponent = ({ label, name, ...rest }) => {
         </label>
       </div>
       <div className="form__controlRight">
-        <Field id={name} name={name} {...rest} />
+        <Field className="form__field" id={name} name={name} {...rest} />
         <ErrorMessage
           className="form__controlError"
           name={name}

@@ -11,6 +11,10 @@
   margin-left: 15px;
 }
 
+.form__field {
+  height: 25px;
+}
+
 .form__controlRight {
   display: flex;
   margin-right: 15px;

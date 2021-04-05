@@ -10,7 +10,12 @@ const SelectComponent = ({ label, name, options, ...rest }) => {
         <label htmlFor={name}>{label}</label>
       </div>
       <div className="form__controlRight">
-        <Field as="select" id={name} name={name} {...rest}>
+        <Field
+          as="select"
+          className="form__field"
+          id={name}
+          name={name}
+          {...rest}>
           {options.map((option) => {
             return (
               <option key={option.value} value={option.value}>

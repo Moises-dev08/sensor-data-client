@@ -33,12 +33,14 @@ const UpdateClientComponent = () => {
           onSubmit={onSubmit}>
           {(formik) => (
             <Form>
+              <div className="updateForm__formik"></div>
               <FormikControlComponent
                 control="select"
                 type="text"
                 label="Marque el cliente que desea modificar:"
                 name="id"
                 options={clientsIds}
+                style={{ width: "500px" }}
               />
 
               <button className="update__button" type="submit">

@@ -1,6 +1,7 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 import TextError from "./TextErrorComponent";
+import "../../style/checkboxComponent.css";
 
 const CheckboxComponent = ({ label, name, options, ...rest }) => {
   return (
@@ -17,6 +18,7 @@ const CheckboxComponent = ({ label, name, options, ...rest }) => {
                   {...field}
                   value={option.value}
                   checked={field.value.includes(option.value)}
+                  className="form__input"
                 />
                 <label htmlFor={option.value}></label>
               </React.Fragment>
