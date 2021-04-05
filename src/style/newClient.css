@@ -11,13 +11,6 @@
   background-color: #49b6d6;
 }
 
-.newClient__button {
-  background-color: #b6c2c9;
-  color: white;
-  font-size: 17px;
-  cursor: pointer;
-}
-
 .form__wraper {
   width: 100%;
 }
@@ -27,9 +20,75 @@
   height: 25px;
   justify-content: center;
   align-items: center;
+  padding-top: 5px;
 }
 
-.form__nrodeRuc > form__control > form__controlLeft {
-  width: 20%;
-  margin-left: -50px;
+.formAssurance__wrapper {
+  margin: 10px 0 0 10px;
+}
+.form__assurance {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  margin-left: 391px;
+}
+
+.formAssurance__titles {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  justify-content: space-between;
+  margin: 8px 10px 8px 10px;
+  padding: 7px 0 7px 0;
+}
+
+.formAssurance__title1 {
+  width: 30%;
+  margin-left: 400px;
+}
+
+.formAssurance__optionsTitle {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  justify-content: space-evenly;
+}
+
+.formAssurance__option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px 0 10px;
+}
+
+.formAssurance__checkboxOptions {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 30%;
+  align-items: center;
+}
+
+.formAssurance__options {
+  margin: 0 30px 0 70px;
+}
+
+.formActive {
+  display: flex;
+  width: 100px;
+  margin: 0 0 20px 10px;
+}
+
+.form__buttonComtainer {
+  width: 100vh;
+  justify-content: center;
+}
+
+.form__button {
+  background-color: #b6c2c9;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  margin: 0 0 15px 15px;
 }

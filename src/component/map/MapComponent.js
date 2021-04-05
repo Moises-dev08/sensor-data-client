@@ -128,17 +128,12 @@ const MapComponent = () => {
     });
   }, [randomLongLatValues]);
 
-  let style = {
-    height: "100vh",
-    width: "100%",
-  };
-
   return (
     <div>
       <button className="map__button" onClick={() => getRandomValues()}>
         Click para generar marcadores
       </button>
-      <div ref={mapElement} className="map-container" style={style} />
+      <div ref={mapElement} className="map-container" />
     </div>
   );
 };

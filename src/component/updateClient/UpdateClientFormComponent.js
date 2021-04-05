@@ -5,14 +5,16 @@ import FormikControlComponent from "../formik/FormikControlComponent";
 import { FORM_FIELDS_ERROR } from "../../const/const";
 import countriesList from "../../formOptions/countriesList";
 import zoneList from "../../formOptions/zoneList";
-import assuranceList from "../../formOptions/assuranceList";
+import assuranceList1 from "../../formOptions/assuranceList1";
+import assuranceList2 from "../../formOptions/assuranceList2";
 
 const UpdateClientFormComponent = ({ values }) => {
   const clientId = values.id.slice(0, 2);
   const client = values.id;
   const countriesDropdownOptions = countriesList;
   const zoneDropdownOptions = zoneList;
-  const assuranceOptions = assuranceList;
+  const assuranceOptions1 = assuranceList1;
+  const assuranceOptions2 = assuranceList2;
 
   const initialValues = {
     razonSocial: "",
@@ -26,7 +28,8 @@ const UpdateClientFormComponent = ({ values }) => {
     fax: "",
     email: "",
     web: "",
-    selectAssuranceOption: [],
+    selectAssuranceOption1: [],
+    selectAssuranceOption2: [],
     activo: "",
   };
 
@@ -42,7 +45,8 @@ const UpdateClientFormComponent = ({ values }) => {
     fax: Yup.string().required(FORM_FIELDS_ERROR),
     email: Yup.string().required(FORM_FIELDS_ERROR),
     web: Yup.string().required(FORM_FIELDS_ERROR),
-    selectAssuranceOption: Yup.array().required(FORM_FIELDS_ERROR),
+    selectAssuranceOption1: Yup.array().required(FORM_FIELDS_ERROR),
+    selectAssuranceOption2: Yup.array().required(FORM_FIELDS_ERROR),
     activo: Yup.boolean().required(FORM_FIELDS_ERROR),
   });
 
@@ -131,7 +135,13 @@ const UpdateClientFormComponent = ({ values }) => {
               control="checkbox"
               label="Seguro"
               name="selectAssuranceOption"
-              options={assuranceOptions}
+              options={assuranceOptions1}
+            />
+            <FormikControlComponent
+              control="checkbox"
+              label="Seguro"
+              name="selectAssuranceOption"
+              options={assuranceOptions2}
             />
             <FormikControlComponent
               control="input"

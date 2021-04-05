@@ -18,7 +18,7 @@ const CheckboxComponent = ({ label, name, options, ...rest }) => {
                   value={option.value}
                   checked={field.value.includes(option.value)}
                 />
-                <label htmlFor={option.value}>{option.key}</label>
+                <label htmlFor={option.value}></label>
               </React.Fragment>
             );
           });
