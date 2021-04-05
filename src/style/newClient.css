@@ -1,7 +1,14 @@
+.formWraper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .form {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #49b6d6;
 }
 
 .newClient__button {
@@ -13,4 +20,16 @@
 
 .form__wraper {
   width: 100%;
+}
+
+.form__title {
+  background-color: #348fe2;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__nrodeRuc > form__control > form__controlLeft {
+  width: 20%;
+  margin-left: -50px;
 }

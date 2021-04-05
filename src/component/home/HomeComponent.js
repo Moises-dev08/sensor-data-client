@@ -23,7 +23,7 @@ const HomeComponent = () => {
           </Link>
           <Link className="header__navLink" to="/newClient">
             <div className="header__option">
-              <h4>Crear nuevo cliente</h4>
+              <h4>Nuevo cliente</h4>
             </div>
           </Link>
           <Link className="header__navLink" to="/updateClient">

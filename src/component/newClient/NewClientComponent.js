@@ -50,101 +50,106 @@ const FormikContainerComponent = () => {
     window.location.reload();
   };
   return (
-    <div className="form">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}>
-        {(formik) => (
-          <Form className="form__wraper">
-            <FormikControlComponent
-              control="input"
-              type="text"
-              label="Razon Social"
-              name="razonSocial"
-            />
-            <FormikControlComponent
-              control="input"
-              type="text"
-              label="Nro. de Ruc"
-              name="nroDeRuc"
-            />
-            <FormikControlComponent
-              control="input"
-              type="text"
-              label="Dirección"
-              name="direccion"
-            />
-            <FormikControlComponent
-              control="select"
-              type="text"
-              label="País"
-              name="selectCountryOption"
-              options={countriesDropdownOptions}
-            />
-            <FormikControlComponent
-              control="input"
-              type="text"
-              label="Ciudad"
-              name="ciudad"
-            />
-            <FormikControlComponent
-              control="input"
-              type="text"
-              label="Código Postal"
-              name="codigoPostal"
-            />
-            <FormikControlComponent
-              control="select"
-              type="text"
-              label="Zona"
-              name="selectZoneOption"
-              options={zoneDropdownOptions}
-            />
-            <FormikControlComponent
-              control="input"
-              type="text"
-              label="Telefono"
-              name="telefono"
-            />{" "}
-            <FormikControlComponent
-              control="input"
-              type="text"
-              label="Fax"
-              name="fax"
-            />{" "}
-            <FormikControlComponent
-              control="input"
-              type="text"
-              label="Email"
-              name="email"
-            />{" "}
-            <FormikControlComponent
-              control="input"
-              type="text"
-              label="Web"
-              name="web"
-            />
-            <FormikControlComponent
-              control="checkbox"
-              label="Seguro"
-              name="selectAssuranceOption"
-              options={assuranceOptions}
-            />
-            <FormikControlComponent
-              control="checkbox"
-              type="text"
-              label="Activo"
-              name="activo"
-              options={activeOptions}
-            />
-            <button className="newClient__button" type="submit">
-              {" "}
-              Crear nuevo cliente
-            </button>
-          </Form>
-        )}
-      </Formik>
+    <div className="formWraper">
+      <div className="form__title">Nuevo</div>
+      <div className="form">
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}>
+          {(formik) => (
+            <Form className="form__wraper">
+              <FormikControlComponent
+                control="input"
+                type="text"
+                label="Razon Social"
+                name="razonSocial"
+              />
+              <div className="form__nrodeRuc">
+                <FormikControlComponent
+                  control="input"
+                  type="text"
+                  label="Nro. de Ruc"
+                  name="nroDeRuc"
+                />
+              </div>
+              <FormikControlComponent
+                control="input"
+                type="text"
+                label="Dirección"
+                name="direccion"
+              />
+              <FormikControlComponent
+                control="select"
+                type="text"
+                label="País"
+                name="selectCountryOption"
+                options={countriesDropdownOptions}
+              />
+              <FormikControlComponent
+                control="input"
+                type="text"
+                label="Ciudad"
+                name="ciudad"
+              />
+              <FormikControlComponent
+                control="input"
+                type="text"
+                label="Código Postal"
+                name="codigoPostal"
+              />
+              <FormikControlComponent
+                control="select"
+                type="text"
+                label="Zona"
+                name="selectZoneOption"
+                options={zoneDropdownOptions}
+              />
+              <FormikControlComponent
+                control="input"
+                type="text"
+                label="Telefono"
+                name="telefono"
+              />{" "}
+              <FormikControlComponent
+                control="input"
+                type="text"
+                label="Fax"
+                name="fax"
+              />{" "}
+              <FormikControlComponent
+                control="input"
+                type="text"
+                label="Email"
+                name="email"
+              />{" "}
+              <FormikControlComponent
+                control="input"
+                type="text"
+                label="Web"
+                name="web"
+              />
+              <FormikControlComponent
+                control="checkbox"
+                label="Seguro"
+                name="selectAssuranceOption"
+                options={assuranceOptions}
+              />
+              <FormikControlComponent
+                control="checkbox"
+                type="text"
+                label="Activo"
+                name="activo"
+                options={activeOptions}
+              />
+              <button className="newClient__button" type="submit">
+                {" "}
+                Nuevo cliente
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 };
