@@ -2,24 +2,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 }
 
-.login_form {
+.login__form {
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   width: 200px;
+  justify-items: center;
 }
 
-.login_form > input {
+.login__form > input {
   border-width: 2px;
-  width: 200px;
+  align-items: center;
+  margin: 10px 0 10px 0px;
+}
+
+.login__title {
+  margin: 10px 0 10px 0;
 }
 
 .login__button {
   display: flex;
-  width: 170px;
+  width: 140px;
   height: 30px;
   justify-content: center;
   align-items: center;
@@ -27,7 +34,7 @@
   border-radius: 1px;
   background-color: #b6c2c9;
   color: white;
-  font-size: 17px;
+  font-size: 13px;
   cursor: pointer;
   border-radius: 4px;
 }
