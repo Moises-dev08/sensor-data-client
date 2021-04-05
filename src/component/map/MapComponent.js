@@ -9,24 +9,19 @@ import Feature from "ol/Feature";
 import Point from "ol/geom/Point";
 import Style from "ol/style/Style";
 import Icon from "ol/style/Icon";
+import "../../style/map/map.css";
 
 const MapComponent = () => {
-  const [map, setMap] = useState();
-  const [randomLatitude, setRandomLatitude] = useState([]);
-  const [randomLongitude, setRandomLongitude] = useState([]);
-
-  const coordinates = [
-    { longitude: randomLongitude, latitude: randomLatitude },
-    { longitude: randomLongitude, latitude: randomLatitude },
-  ];
+  const [map, setMap] = useState({});
+  const [randomLongLatValues, setRandomLongLatValues] = useState([]);
+  const [markersListToLayer, setMarkersListToLayer] = useState();
 
   const getRandomLatitude = (a, b) => {
     let values = [];
     for (let i = 0; i < 2; i++)
       values.push(Math.random() * (b - a) + parseInt(a));
 
-    const latitudeValues = values.map((value) => parseFloat(value.toFixed(6)));
-    setRandomLatitude(latitudeValues);
+    return values.map((value) => parseFloat(value.toFixed(6)));
   };
 
   const getRandomLongitude = (a, b) => {
@@ -36,13 +31,17 @@ const MapComponent = () => {
         Math.floor(Math.random() * (b * 1000000 - a * 1000000) + a * 1000000) /
           (a * -10000)
       );
-    const longitudeValues = values.map((value) => parseFloat(value.toFixed(6)));
-    setRandomLongitude(longitudeValues);
+    return values.map((value) => parseFloat(value.toFixed(6)));
   };
 
   const getRandomValues = () => {
-    getRandomLatitude(20, 19);
-    getRandomLongitude(-99, -98);
+    const latitude = getRandomLatitude(20, 19);
+    const longitude = getRandomLongitude(-99, -98);
+
+    setRandomLongLatValues([
+      { longitude: longitude[0], latitude: latitude[0] },
+      { longitude: longitude[1], latitude: latitude[1] },
+    ]);
   };
 
   // References
@@ -51,29 +50,47 @@ const MapComponent = () => {
   mapRef.current = map;
 
   const markersList = [];
+  // const lastLayer = {};
 
-  coordinates.forEach((element) => {
-    let marker = new Feature({
-      geometry: new Point(fromLonLat([element.longitude, element.latitude])),
+  const updateMarkersWhenClick = () => {
+    // if (lastLayer) {
+    //   map.removeLayer(lastLayer);
+    // }
+
+    randomLongLatValues.forEach((element) => {
+      let marker = new Feature({
+        geometry: new Point(fromLonLat([element.longitude, element.latitude])),
+      });
+
+      marker.setStyle(
+        new Style({
+          image: new Icon({
+            src:
+              "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+          }),
+        })
+      );
+
+      markersList.push(marker);
+      //console.log("marker", marker);
+      console.log("markersList", markersList);
+
+      setMarkersListToLayer(markersList);
     });
+  };
 
-    marker.setStyle(
-      new Style({
-        image: new Icon({
-          src:
-            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-        }),
-      })
-    );
-
-    markersList.push(marker);
-  });
-
-  let layer = new Vector({
+  let layers = new Vector({
     source: new olSource.Vector({
-      features: markersList,
+      features: markersListToLayer,
     }),
+    visible: true,
+    title: "longLatValues",
   });
+
+  console.log("layers", layers);
+  useEffect(() => {
+    updateMarkersWhenClick();
+  }, [randomLongLatValues]);
 
   useEffect(() => {
     let mapObject = new Map({
@@ -89,9 +106,10 @@ const MapComponent = () => {
         zoom: 2,
       }),
     });
+
     setMap(mapObject);
 
-    mapObject.addLayer(layer);
+    mapObject.addLayer(layers);
 
     mapObject.on("singleclick", function (evt) {
       let feature = mapObject.forEachFeatureAtPixel(
@@ -108,7 +126,7 @@ const MapComponent = () => {
          Latitud:  ${latitude}`);
       }
     });
-  }, []);
+  }, [randomLongLatValues]);
 
   let style = {
     height: "100vh",
@@ -117,7 +135,7 @@ const MapComponent = () => {
 
   return (
     <div>
-      <button onClick={() => getRandomValues()}>
+      <button className="map__button" onClick={() => getRandomValues()}>
         Click para generar marcadores
       </button>
       <div ref={mapElement} className="map-container" style={style} />
