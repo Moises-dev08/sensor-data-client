@@ -1,9 +1,17 @@
+.deleteForm__buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px 0 0;
+}
+
 .delete__button {
-  background-color: #b6c2c9;
+  margin: 10px 0 0 10px;
+  background-color: #ff5b57;
   color: white;
   font-size: 17px;
   cursor: pointer;
   margin-top: 15px;
+  font-size: 13px;
 }
 
 .error {

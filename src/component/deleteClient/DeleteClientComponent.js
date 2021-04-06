@@ -34,12 +34,15 @@ const DeleteClientComponent = () => {
             label="Seleccione el cliente que desea eliminar:"
             name="id"
             options={clientsIds}
+            style={{ width: "500px" }}
           />
 
-          <button className="delete__button" type="submit">
-            {" "}
-            Eliminar cliente
-          </button>
+          <div className="deleteForm__buttonWrapper">
+            <button className="delete__button" type="submit">
+              {" "}
+              Eliminar cliente
+            </button>
+          </div>
         </Form>
       )}
     </Formik>
