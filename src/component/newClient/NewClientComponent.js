@@ -8,7 +8,12 @@ import zoneList from "../../formOptions/zoneList";
 import assuranceList1 from "../../formOptions/assuranceList1";
 import assuranceList2 from "../../formOptions/assuranceList2";
 import activeOptions from "../../formOptions/activeOptions";
-import { FORM_FIELDS_ERROR } from "../../const/const";
+import {
+  FORM_FIELDS_ERROR,
+  NEW_CLIENT_SERVER_ERRROR,
+  NEW_CLIENT_SERVER_SUCCESS,
+} from "../../const/const";
+import { newClientService } from "../../services/querys/clientService";
 import "../../style/newClient.css";
 
 const FormikContainerComponent = () => {
@@ -50,10 +55,15 @@ const FormikContainerComponent = () => {
     selectAssuranceOption2: Yup.array().required(FORM_FIELDS_ERROR),
   });
 
-  const onSubmit = (values) => {
-    alert("Cliente creado exitosamente!");
-    window.location.reload();
+  const onSubmit = async (values) => {
+    const response = await newClientService(values);
+
+    if (response === true) {
+      alert(NEW_CLIENT_SERVER_SUCCESS);
+      window.location.reload();
+    } else alert(NEW_CLIENT_SERVER_ERRROR);
   };
+
   return (
     <div>
       <div className="closeScreen">
