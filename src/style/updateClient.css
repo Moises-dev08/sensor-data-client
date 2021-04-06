@@ -1,3 +1,9 @@
+.updateForm__buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px 0 0;
+}
+
 .update__button {
   margin: 10px 0 0 10px;
   background-color: #b6c2c9;
