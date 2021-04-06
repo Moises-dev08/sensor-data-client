@@ -15,26 +15,17 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/home" component={HomeScreen} />
-          <Route exact path="/newClient">
-            <HomeScreen />
-            <NewClientScreen />
-          </Route>
-          <Route exact path="/clientsList">
-            <HomeScreen />
-            <ClientsListScreen />
-          </Route>
-          <Route exact path="/deleteClient">
-            <HomeScreen />
-            <DeleteClientScreen />
-          </Route>
-          <Route exact path="/updateClient">
-            <HomeScreen />
-            <UpdateClientScreen />
-          </Route>
-          <Route exact path="/map">
-            <HomeScreen />
-            <MapScreen />
-          </Route>
+
+          <Route exact path="/newClient" component={NewClientScreen} />
+
+          <Route exact path="/clientsList" component={ClientsListScreen} />
+
+          <Route exact path="/deleteClient" component={DeleteClientScreen} />
+
+          <Route exact path="/updateClient" component={UpdateClientScreen} />
+
+          <Route exact path="/map" component={MapScreen} />
+
           <Route exact path="/" component={LoginScreen} />
         </Switch>
       </div>

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Map from "ol/Map";
 import View from "ol/View";
 import TileLayer from "ol/layer/Tile";
@@ -130,6 +131,15 @@ const MapComponent = () => {
 
   return (
     <div>
+      <div className="closeScreen">
+        <Link to="/home">
+          <img
+            className="closeScreen__cross"
+            src="https://cdn.imgbin.com/19/15/6/imgbin-computer-icons-error-computer-XVScfC5dQ1UJGyh7NvxkYtyEV.jpg"
+            alt="closeImage"
+          />
+        </Link>
+      </div>
       <button className="map__button" onClick={() => getRandomValues()}>
         Click para generar marcadores
       </button>

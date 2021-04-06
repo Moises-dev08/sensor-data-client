@@ -17,3 +17,14 @@
 .error {
   color: red;
 }
+
+.closeScreen {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.closeScreen__cross {
+  width: 20px;
+  height: 20px;
+}

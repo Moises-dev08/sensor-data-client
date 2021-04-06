@@ -93,3 +93,14 @@
   margin: 0 0 15px 15px;
   font-size: 13px;
 }
+
+.closeScreen {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.closeScreen__cross {
+  width: 20px;
+  height: 20px;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import DataTable from "react-data-table-component";
+import { Link } from "react-router-dom";
 
 const ClientsListComponent = () => {
   const clientList = [
@@ -83,6 +84,15 @@ const ClientsListComponent = () => {
   };
   return (
     <div className="clientList">
+      <div className="closeScreen">
+        <Link to="/home">
+          <img
+            className="closeScreen__cross"
+            src="https://cdn.imgbin.com/19/15/6/imgbin-computer-icons-error-computer-XVScfC5dQ1UJGyh7NvxkYtyEV.jpg"
+            alt="closeImage"
+          />
+        </Link>
+      </div>
       <DataTable
         columns={columns}
         data={clientList}
