@@ -26,34 +26,32 @@ const UpdateClientComponent = () => {
   };
   return (
     <div className="updateForm">
-      <div className="updateForm__leftColumn">
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={onSubmit}>
-          {(formik) => (
-            <Form>
-              <div className="updateForm__formik"></div>
-              <FormikControlComponent
-                control="select"
-                type="text"
-                label="Marque el cliente que desea modificar:"
-                name="id"
-                options={clientsIds}
-                style={{ width: "500px" }}
-              />
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}>
+        {(formik) => (
+          <Form>
+            <div className="updateForm__formik"></div>
+            <FormikControlComponent
+              control="select"
+              type="text"
+              label="Marque el cliente que desea modificar:"
+              name="id"
+              options={clientsIds}
+              style={{ width: "500px" }}
+            />
 
+            <div className="updateForm__buttonWrapper">
               <button className="update__button" type="submit">
                 {" "}
                 Seleccionar
               </button>
-            </Form>
-          )}
-        </Formik>
-      </div>
-      <div className="updateForm__rightColumn">
-        {valuesForm && <UpdateClientFormComponent values={valuesForm} />}
-      </div>
+            </div>
+          </Form>
+        )}
+      </Formik>
+      {valuesForm && <UpdateClientFormComponent values={valuesForm} />}
     </div>
   );
 };
