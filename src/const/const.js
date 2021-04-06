@@ -16,3 +16,29 @@ export const LOGIN_ERROR = "Usuario o contraseña es incorrecto.";
 
 // SignUp Authentication:
 export const SIGNUP_SERVER_URL = "/signUp";
+
+// Delete client url:
+export const DELETE_CLIENT_SERVER_URL = "/deleteClient";
+
+// Modify client url:
+export const MODIFY_CLIENT_SERVER_URL = "/modifyClient";
+
+// New client url:
+export const NEW_CLIENT_SERVER_URL = "/newClient";
+
+// ABM server errors:
+export const DELETE_CLIENT_SERVER_ERRROR =
+  "No se ha podido eliminar al cliente.";
+
+export const MODIFY_CLIENT_SERVER_ERRROR =
+  "No se ha podido modificar al cliente.";
+
+export const NEW_CLIENT_SERVER_ERRROR =
+  "No se ha podido crear un nuevo cliente.";
+
+// ABM success message:
+export const DELETE_CLIENT_SERVER_SUCCESS = "Cliente eliminado exitosamente.";
+
+export const MODIFY_CLIENT_SERVER_SUCCESS = "Cliente modificado exitosamente.";
+
+export const NEW_CLIENT_SERVER_SUCCESS = "Nuevo cliente creado exitosamente.";

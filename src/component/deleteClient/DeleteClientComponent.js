@@ -3,8 +3,13 @@ import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import FormikControlComponent from "../formik/FormikControlComponent";
-import { FORM_FIELDS_ERROR } from "../../const/const";
+import {
+  FORM_FIELDS_ERROR,
+  DELETE_CLIENT_SERVER_ERRROR,
+  DELETE_CLIENT_SERVER_SUCCESS,
+} from "../../const/const";
 import clientsListIds from "../../formOptions/clientsListIds";
+import { deleteClientService } from "../../services/querys/clientService";
 import "../../style/deleteClient.css";
 
 const DeleteClientComponent = () => {
@@ -18,10 +23,16 @@ const DeleteClientComponent = () => {
     id: Yup.string().required(FORM_FIELDS_ERROR),
   });
 
-  const onSubmit = (values) => {
-    alert("Cliente eliminado exitosamente!");
-    window.location.reload();
+  const onSubmit = async (values) => {
+    const id = values.id.split("")[0];
+    const response = await deleteClientService(id);
+
+    if (response === true) {
+      alert(DELETE_CLIENT_SERVER_SUCCESS);
+      window.location.reload();
+    } else alert(DELETE_CLIENT_SERVER_ERRROR);
   };
+
   return (
     <div>
       <div className="closeScreen">

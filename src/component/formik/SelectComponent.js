@@ -18,7 +18,7 @@ const SelectComponent = ({ label, name, options, ...rest }) => {
           {...rest}>
           {options.map((option) => {
             return (
-              <option key={option.value} value={option.value}>
+              <option key={option.key} value={option.value}>
                 {option.value}
               </option>
             );
