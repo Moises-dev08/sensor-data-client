@@ -15,7 +15,7 @@ import "../../style/map/map.css";
 const MapComponent = () => {
   const [map, setMap] = useState({});
   const [randomLongLatValues, setRandomLongLatValues] = useState([]);
-  const [markersListToLayer, setMarkersListToLayer] = useState();
+  const [layer, setLayer] = useState({});
 
   const getRandomLatitude = (a, b) => {
     let values = [];
@@ -47,17 +47,10 @@ const MapComponent = () => {
 
   // References
   const mapElement = useRef();
-  const mapRef = useRef();
-  mapRef.current = map;
 
   const markersList = [];
-  // const lastLayer = {};
 
   const updateMarkersWhenClick = () => {
-    // if (lastLayer) {
-    //   map.removeLayer(lastLayer);
-    // }
-
     randomLongLatValues.forEach((element) => {
       let marker = new Feature({
         geometry: new Point(fromLonLat([element.longitude, element.latitude])),
@@ -73,25 +66,30 @@ const MapComponent = () => {
       );
 
       markersList.push(marker);
-      //console.log("marker", marker);
-      console.log("markersList", markersList);
-
-      setMarkersListToLayer(markersList);
     });
+
+    let layer = new Vector({
+      source: new olSource.Vector({
+        features: markersList,
+      }),
+      visible: true,
+      title: "longLatValues",
+    });
+
+    setLayer(layer);
   };
 
-  let layers = new Vector({
-    source: new olSource.Vector({
-      features: markersListToLayer,
-    }),
-    visible: true,
-    title: "longLatValues",
-  });
-
-  console.log("layers", layers);
   useEffect(() => {
-    updateMarkersWhenClick();
+    if (randomLongLatValues.length >= 1) {
+      updateMarkersWhenClick();
+    }
   }, [randomLongLatValues]);
+
+  useEffect(() => {
+    if (Object.keys(layer).length >= 1) {
+      map.addLayer(layer);
+    }
+  }, [layer]);
 
   useEffect(() => {
     let mapObject = new Map({
@@ -104,13 +102,11 @@ const MapComponent = () => {
       ],
       view: new View({
         center: fromLonLat([-99.128145, 19.413793]),
-        zoom: 2,
+        zoom: 8,
       }),
     });
 
     setMap(mapObject);
-
-    mapObject.addLayer(layers);
 
     mapObject.on("singleclick", function (evt) {
       let feature = mapObject.forEachFeatureAtPixel(
@@ -127,7 +123,7 @@ const MapComponent = () => {
          Latitud:  ${latitude}`);
       }
     });
-  }, [randomLongLatValues]);
+  }, []);
 
   return (
     <div>
