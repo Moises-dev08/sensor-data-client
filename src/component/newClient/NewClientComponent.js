@@ -53,6 +53,7 @@ const FormikContainerComponent = () => {
     web: Yup.string().required(FORM_FIELDS_ERROR),
     selectAssuranceOption1: Yup.array().required(FORM_FIELDS_ERROR),
     selectAssuranceOption2: Yup.array().required(FORM_FIELDS_ERROR),
+    activo: Yup.array(),
   });
 
   const onSubmit = async (values) => {
