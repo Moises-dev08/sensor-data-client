@@ -20,8 +20,8 @@ export const SIGNUP_SERVER_URL = "/signUp";
 // Delete client url:
 export const DELETE_CLIENT_SERVER_URL = "/deleteClient";
 
-// Modify client url:
-export const MODIFY_CLIENT_SERVER_URL = "/modifyClient";
+// UPDATE client url:
+export const UPDATE_CLIENT_SERVER_URL = "/updateClient";
 
 // New client url:
 export const NEW_CLIENT_SERVER_URL = "/newClient";
@@ -30,7 +30,7 @@ export const NEW_CLIENT_SERVER_URL = "/newClient";
 export const DELETE_CLIENT_SERVER_ERRROR =
   "No se ha podido eliminar al cliente.";
 
-export const MODIFY_CLIENT_SERVER_ERRROR =
+export const UPDATE_CLIENT_SERVER_ERRROR =
   "No se ha podido modificar al cliente.";
 
 export const NEW_CLIENT_SERVER_ERRROR =
@@ -39,6 +39,6 @@ export const NEW_CLIENT_SERVER_ERRROR =
 // ABM success message:
 export const DELETE_CLIENT_SERVER_SUCCESS = "Cliente eliminado exitosamente.";
 
-export const MODIFY_CLIENT_SERVER_SUCCESS = "Cliente modificado exitosamente.";
+export const UPDATE_CLIENT_SERVER_SUCCESS = "Cliente modificado exitosamente.";
 
 export const NEW_CLIENT_SERVER_SUCCESS = "Nuevo cliente creado exitosamente.";

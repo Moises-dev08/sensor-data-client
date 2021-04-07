@@ -1,7 +1,7 @@
 import axios from "axios";
 import {
   NEW_CLIENT_SERVER_URL,
-  MODIFY_CLIENT_SERVER_URL,
+  UPDATE_CLIENT_SERVER_URL,
   DELETE_CLIENT_SERVER_URL,
   MAIN_SERVER_URL,
 } from "../../const/const";
@@ -30,10 +30,10 @@ const newClientService = async (data) => {
   }
 };
 
-const modifyClientService = async (data) => {
+const updateClientService = async (data) => {
   try {
     const response = await axios.put(
-      MAIN_SERVER_URL + MODIFY_CLIENT_SERVER_URL + data.id,
+      MAIN_SERVER_URL + UPDATE_CLIENT_SERVER_URL + data.id,
       {
         razonSocial: data.razonSocial,
         nroDeRuc: data.nroDeRuc,
@@ -68,4 +68,4 @@ const deleteClientService = async (id) => {
   }
 };
 
-export { newClientService, modifyClientService, deleteClientService };
+export { newClientService, updateClientService, deleteClientService };

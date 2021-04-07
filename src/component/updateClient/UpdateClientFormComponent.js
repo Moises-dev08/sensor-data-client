@@ -2,12 +2,17 @@ import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControlComponent from "../formik/FormikControlComponent";
-import { FORM_FIELDS_ERROR } from "../../const/const";
+import {
+  FORM_FIELDS_ERROR,
+  UPDATE_CLIENT_SERVER_ERRROR,
+  UPDATE_CLIENT_SERVER_SUCCESS,
+} from "../../const/const";
 import countriesList from "../../formOptions/countriesList";
 import zoneList from "../../formOptions/zoneList";
 import assuranceList1 from "../../formOptions/assuranceList1";
 import assuranceList2 from "../../formOptions/assuranceList2";
 import activeOptions from "../../formOptions/activeOptions";
+import { updateClientService } from "../../services/querys/clientService";
 import "../../style/updateClientForm.css";
 
 const UpdateClientFormComponent = ({ values }) => {
@@ -49,13 +54,18 @@ const UpdateClientFormComponent = ({ values }) => {
     web: Yup.string().required(FORM_FIELDS_ERROR),
     selectAssuranceOption1: Yup.array().required(FORM_FIELDS_ERROR),
     selectAssuranceOption2: Yup.array().required(FORM_FIELDS_ERROR),
-    activo: Yup.boolean().required(FORM_FIELDS_ERROR),
+    activo: Yup.array(),
   });
 
-  const onSubmit = (values) => {
-    alert("Cliente modificado exitosamente!");
-    window.location.reload();
+  const onSubmit = async (values) => {
+    const response = await updateClientService(client);
+
+    if (response === true) {
+      alert(UPDATE_CLIENT_SERVER_SUCCESS);
+      window.location.reload();
+    } else alert(UPDATE_CLIENT_SERVER_ERRROR);
   };
+
   return (
     <div className="updateClientForm">
       <div className="form__title">

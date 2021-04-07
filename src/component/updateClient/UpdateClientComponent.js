@@ -23,7 +23,6 @@ const UpdateClientComponent = () => {
 
   const onSubmit = (values) => {
     setFormValues(values);
-    console.log(values);
   };
   return (
     <div>

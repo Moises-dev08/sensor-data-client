@@ -1,1 +1,1 @@
-module.exports = [{ key: "Si", value: "Si" }];
+module.exports = [{ key: "si", value: "si" }];
